@@ -9,7 +9,7 @@ then
 fi
 
 # Determine the architecture, only arm64/amd64 is supported
-MACHINE=`uname -p`
+MACHINE=`uname -m`
 
 case $MACHINE in
 	aarch64)
