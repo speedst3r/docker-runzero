@@ -5,10 +5,10 @@ ARG RUNZERO_EXPLORER_ID
 
 WORKDIR /opt/rumble
 
-RUN curl -o chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_${TARGETARCH}.deb && \
-    apt install ./chrome.deb && \
-    apt update && \    
-    apt install -y wireless-tools # to support wireless scanning
+RUN apt update && \    
+    apt install -y curl wireless-tools && \
+    curl -o chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_${TARGETARCH}.deb && \
+    apt install ./chrome.deb
 
 
 # Set AGENT_URL to be the download URL for your Linux runZero Explorer. To 
