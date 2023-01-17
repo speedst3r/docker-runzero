@@ -1,38 +1,27 @@
 FROM debian:stable-slim
 
-ARG TARGETARCH
-ARG RUNZERO_EXPLORER_ID
-
-WORKDIR /opt/rumble
-
 RUN apt update && \    
-    apt install -y wireless-tools 
-
-# Set AGENT_URL to be the download URL for your Linux runZero Explorer. To 
-# find your URL, go to https://console.runzero.com/deploy/download/explorers 
-# and click on the first URL box to copy it to the clipboard.
-#
-ENV AGENT_URL=https://console.runzero.com/download/explorer/${RUNZERO_EXPLORER_ID}/runzero-explorer-linux-${TARGETARCH}.bin
+    apt install -y curl wireless-tools 
 
 # This ID is used to track the Explorer even if the container is rebuilt.
 # Set it to a unique 32 character hex ID. You can generate one via:
 #
 # $ openssl rand -hex 16
 #
-ENV RUMBLE_AGENT_HOST_ID=[UNIQUE-ID]
+ENV RUMBLE_AGENT_HOST_ID=c55636d323b2deea91f2f7d9a632cd7f
+ENV RUNZERO_VERSION=63c650cf
 
 # If you need to set environment variables to change the Explorer behavior,
 # you can do so via the ENV directive. Example:
 #
 # ENV RUMBLE_AGENT_LOG_DEBUG=true
 
-ADD ${AGENT_URL} runzero-explorer.bin
-
-RUN chmod +x runzero-explorer.bin
+ADD entrypoint.sh
+RUN chmod +x entrypoint.sh
 
 # For full functionality the runZero scanner needs to send and receive raw 
 # packets, which requires elevated privileges. 
 USER root
 
-# The argument `manual` tells runZero not to look for SystemD or upstart.
-ENTRYPOINT [ "/opt/rumble/runzero-explorer.bin", "manual"]
+# entrypoint script downloads and starts runZero explorer
+ENTRYPOINT [ "/entrypoint.sh" ]
