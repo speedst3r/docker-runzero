@@ -5,7 +5,7 @@ ARG RUNZERO_EXPLORER_ID
 
 WORKDIR /opt/rumble
 
-RUN curl -o chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_${TARGETPLATFORM}.deb && \
+RUN curl -o chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_${TARGETARCH}.deb && \
     apt install ./chrome.deb && \
     apt update && \    
     apt install -y wireless-tools # to support wireless scanning
