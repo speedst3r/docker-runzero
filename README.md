@@ -4,6 +4,8 @@ Run a runZero explorer in a Docker container.
 ## Introduction
 This Docker image will download the latest runZero explorer and launch it in manual mode.
 
+Images for linux/amd64 and linux/arm64 only.
+
 ## Usage
 1. Obtain your Explorer organisation download code from the runZero console (Deploy > Deploy Explorers). The download code is the string beginning with `DT`
 2. Generate a 32-byte host identifier so when the container launches it is identified as the same agent. Example:
