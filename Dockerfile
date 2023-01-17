@@ -2,6 +2,8 @@
 # Sample Containerfile for running the runZero Explorer in a container, with 
 # screenshot support.
 #
+ARG TARGETPLATFORM
+ARG RUNZERO_EXPLORER_ID
 FROM debian:stable-slim
 
 WORKDIR /opt/rumble
@@ -16,7 +18,6 @@ RUN curl -o chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_c
 # find your URL, go to https://console.runzero.com/deploy/download/explorers 
 # and click on the first URL box to copy it to the clipboard.
 #
-ARG RUNZERO_EXPLORER_ID
 ENV AGENT_URL=https://console.runzero.com/download/explorer/$RUNZERO_EXPLORER_ID/runzero-explorer-linux-$TARGETPLATFORM.bin
 
 # This ID is used to track the Explorer even if the container is rebuilt.
