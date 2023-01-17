@@ -9,15 +9,14 @@ RUN apt update && \
 # $ openssl rand -hex 16
 #
 ENV RUMBLE_AGENT_HOST_ID=c55636d323b2deea91f2f7d9a632cd7f
-ENV RUNZERO_VERSION=63c650cf
 
 # If you need to set environment variables to change the Explorer behavior,
 # you can do so via the ENV directive. Example:
 #
 # ENV RUMBLE_AGENT_LOG_DEBUG=true
 
-ADD entrypoint.sh
-RUN chmod +x entrypoint.sh
+ADD entrypoint.sh /
+RUN chmod +x /entrypoint.sh
 
 # For full functionality the runZero scanner needs to send and receive raw 
 # packets, which requires elevated privileges. 
