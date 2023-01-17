@@ -35,10 +35,10 @@ jobs:
 
      - name: Build and push Docker image
        uses: docker/build-push-action@v3
-       env:
-         RUNZERO_EXPLORER_ID: ${{ secrets.RUNZERO_EXPLORER_ID }}
        with:
          context: .
+         build_args:
+           - RUNZERO_EXPLORER_ID: ${{ secrets.RUNZERO_EXPLORER_ID }}
          platforms: linux/amd64,linux/arm64
          push: true
          tags: ${{ steps.meta.outputs.tags }}
