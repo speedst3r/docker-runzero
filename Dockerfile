@@ -1,7 +1,3 @@
-#
-# Sample Containerfile for running the runZero Explorer in a container, with 
-# screenshot support.
-#
 ARG TARGETPLATFORM
 ARG RUNZERO_EXPLORER_ID
 FROM debian:stable-slim
