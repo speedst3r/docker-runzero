@@ -17,7 +17,7 @@ This Docker image will download the latest runZero explorer and launch it in man
         -e RUNZERO_ORG_CODE=<org code> \
         -e RUMBLE_AGENT_HOST_ID=<host id> \
         --restart=unless-stopped\
-        ghcr.io/speedst3r/docker-runzero:master
+        ghcr.io/speedst3r/docker-runzero:latest
     ```
 4. The explorer should register to your organisation and be visible in the console
 
