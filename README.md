@@ -24,4 +24,4 @@ Images for linux/amd64 and linux/arm64 only.
 4. The explorer should register to your organisation and be visible in the console
 
 ### Updating
-1. Restart the container, the latest version will be downloaded when the container starts.
+1. The runzero explorer will update and restart itself without restarting the container. Should you restart the container, the latest version will be downloaded when the container starts.
