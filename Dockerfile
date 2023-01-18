@@ -1,7 +1,7 @@
 FROM debian:stable-slim
 
 RUN apt update && \    
-    apt install -y curl wireless-tools 
+    apt install -y chromium curl wireless-tools 
 
 # This ID is used to track the Explorer even if the container is rebuilt.
 # Set it to a unique 32 character hex ID. You can generate one via:
